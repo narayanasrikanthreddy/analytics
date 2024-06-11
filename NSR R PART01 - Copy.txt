@@ -1,0 +1,293 @@
+# Session 8: Topic: Basic Syntax & Operations
+
+# To see which is the current working drive
+getwd()
+
+# To set working drive in another folder path
+setwd("C:/Users/username/Documents/Rdir")
+getwd() # Check if new path has been set
+
+
+#A) hash for comments & non operations
+# This is an example
+
+# Below assignment Operators give same result ie. my_var=3
+my_var <- 3
+my_var <<- 3
+3 -> my_var
+3 ->> my_var
+my_var # print my_var
+
+# B) Mathematical operations
+# sum of 4 and 3
+4+3
+4-3
+4*3
+4/3
+4^3
+
+# C) nested operations/nested expressions/nested functions-embedding one operation or function inside the other
+#Nested expression
+((4-(1+3))*2)
+
+# D) Object creation
+#objectname<-(3+2)
+cost<-900
+cost
+days=(2+3)
+days
+costperday<-cost/days
+costperday
+
+# E) Boolean logic ie. True / False statements
+a <- 10
+b <- 9
+a > b
+b > a
+
+#F) functions
+log(15)
+exp(5)
+sqrt(64)
+abs(-5)
+
+#Nested function
+num<-1:9
+sqrt(sum(num))
+
+# G) Calculations using functions
+x<-30
+sin(15+x)
+p<-1/sqrt(sin(15+x))
+p
+
+# functions with multiple arguments
+round(16.7784)
+round(16.7784,digits=2)
+round(16.7784,digits=3)
+
+# H) Vector creation
+# to create vector c()
+# 3 kinds of vectors
+#Numerical vector
+a<-c(1,2,3,4,5)
+a
+
+#Logical Vectors
+x<-c(1,2,3)
+y<-c(5,6,3)
+x==y
+
+#character Vectors are used to plot a label
+d<-c("Hello")
+d
+
+
+
+# I) Vector Arithmetic
+x<-c(11,12,13,14,15)
+x
+1/x
+
+p<-4.5
+q<-6.25
+b<-1200
+
+p+q
+3000/b
+
+r<-c(12,14,16,18,19,20,22,25,34,13,16,10)
+r
+max(r)
+min(r)
+length(r)
+sum(r)
+prod(r)
+mean(r)
+var(r)
+sort(r)
+sort(r,decreasing=TRUE)
+sort(r,decreasing=FALSE)
+
+# J) Matrices
+x<-1:9 # X is a row of integers from 1 to 9
+x # See values of x
+dim(x)<-c(3,3) # Setting the rows, columns of matrix
+x # Now x is a matrix of 3 rows x 3 columns
+
+matrix(1:9,nrow=3,byrow=3)
+matrix(1:9,nrow=3,byrow=T)
+q<-matrix(1:20,nrow=5,ncol=4)
+q
+
+#transpose function
+y<-t(x)
+y
+
+#Matrix multiplication
+y*x
+y/x
+
+
+# K) Correlation & basic stats demo:
+#create vectors age with data 1,3,5,2,11,9,3,9,12,3 and weight with data 4.4,5.3,7.2,5.2,8.5,7.3,6.0,10.4,10.2,6.1
+#Find mean weight,standard deviation of weight,correlation between age and weight and plot age and weight
+#cor(x,y)- function for correlation, plot (x,y)-function for plot here x is age and y is weight
+age<-c(1,3,5,2,11,9,3,9,12,3)
+weight<-c(4.4,5.3,7.2,5.2,8.5,7.3,6.0,10.4,10.2,6.1)
+mean(weight)
+median(weight)
+sd(weight)
+cor(age,weight)
+
+# Use basic plotting command plot(variables)
+# par(mar=c(1,1,1,1)) 
+plot(age,weight)
+
+# Quiz
+# identify the dependent and independent variable with age and weight
+
+
+# L) Logical operations
+
+# If Statements
+a <- 33
+b <- 200
+# R uses curly brackets { } to define scope or block of code.
+if (b > a) {
+  print("b is greater than a")
+}
+
+# Elseif statements
+a <- 33
+b <- 33
+
+if (b > a) {
+  print("b is greater than a")
+} else if (a == b) {
+  print ("a and b are equal")
+}
+
+# If Else statements
+a <- 200
+b <- 33
+
+if (b > a) {
+  print("b is greater than a")
+} else if (a == b) {
+  print("a and b are equal")
+} else {
+  print("a is greater than b")
+}
+
+
+# M) And Or operations
+# The & symbol (and) is a logical operator,
+a <- 200
+b <- 33
+c <- 500
+
+if (a > b & c > a) {
+  print("Both conditions are true")
+}
+
+# The | symbol (or) is a logical operator, and is used to combine conditional statements:
+a <- 200
+b <- 33
+c <- 500
+
+if (a > b | a > c) {
+  print("At least one of the conditions is true")
+}
+
+
+# N) While loop:
+# R While Loops: we can execute a set of statements as long as a condition is TRUE:
+# Task: Print i as long as i is less than 6:
+i <- 1
+while (i < 6) {
+  print(i)
+  i <- i + 1
+}
+
+
+# O) For Loops
+# A for loop is used for iterating over a sequence:
+for (x in 1:10) {
+  print(x)
+}
+
+# P) Creating a function using function()
+my_function <- function() { # create a function with the name my_function
+  print("Hello World!")
+}
+# Now call the above function named my_function to execute it
+my_function()
+
+
+#Q) Return values of a function
+my_function <- function(x) {
+  return (5 * x)
+}
+
+print(my_function(3))
+print(my_function(5))
+print(my_function(9))
+
+
+#R) Data Visualization
+# Visualization of AirQuality dataset
+# https://www.geeksforgeeks.org/data-visualization-in-r/
+aq <- data.frame(airquality)
+head(aq,10)
+
+# See the column names
+colnames(aq)
+
+# Check if data is missing
+colSums(is.na(aq))
+
+# 37 values of Ozone are NA & 7 of Solar.R
+
+summary(aq)
+
+# In R, a factor is a data structure used 
+# for fields that take on a limited number 
+# of unique values, also known as categorical data. 
+# Factors are used to represent categorical data 
+# and store it as levels.
+
+# Day & Month should be factor variables
+aq$Day <- factor(aq$Day, levels=1:31, ordered=TRUE)
+aq$Month <- factor(aq$Month, levels=5:9, labels=month.abb[5:9], ordered=TRUE)
+
+# Get Summary statistics for all the variables:
+summary(aq)
+
+# Install ggplot - explain about package
+
+# Visualization of each variable
+library(ggplot2)
+
+# Ozone Histogram to check normality, kurtosis
+ggplot(data=aq) + geom_histogram(mapping=aes(Ozone))
+
+# This is heavily skewed to right & has kurtosis
+
+# Let us see seasonal variation in data using box plots
+qplot(Month, Ozone, data=aq, geom="boxplot", color=Month)
+
+# Next see the seasonal variaton in Solar.R, Wind & Temp
+qplot(Month, Solar.R, data=aq, geom="boxplot", color=Month)
+qplot(Month, Wind, data=aq, geom="boxplot", color=Month)
+qplot(Month, Temp, data=aq, geom="boxplot", color=Month)
+
+# Pearsons Correlation Coefficients
+# Only numerical variables can be used for correlation
+columns <- c('Ozone', 'Solar.R', 'Wind', 'Temp')
+
+# We identify non-na rows as rows with na values cause problems 
+rows <- rowSums(is.na(aq)) == 0
+
+# Compute correlation of variables and round to 2 digits
+round(cor(aq[rows, columns]), 2)
